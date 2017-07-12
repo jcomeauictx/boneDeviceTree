@@ -1,0 +1,54 @@
+[  522.696057] bone_capemgr bone_capemgr: part_number 'bb_gpio_test', version 'N/A'
+[  522.696142] bone_capemgr bone_capemgr: slot #5: override
+[  522.696185] bone_capemgr bone_capemgr: Using override eeprom data at slot 5
+[  522.696233] bone_capemgr bone_capemgr: slot #5: 'Override Board Name,00A0,Override Manuf,bb_gpio_test'
+[  522.719969] pinctrl-single 44e10800.pinmux: pin 44e10860.0 already requested by leds; cannot claim for ocp:helper
+[  522.730646] pinctrl-single 44e10800.pinmux: pin-24 (ocp:helper) status -22
+[  522.737725] pinctrl-single 44e10800.pinmux: could not request pin 24 (44e10860.0) from group bb_gpio_test_pins  on device pinctrl-single
+[  522.750153] bone-pinmux-helper ocp:helper: Error applying setting, reverse things back
+[  522.825838] pinctrl-single 44e10800.pinmux: pin 44e10860.0 already requested by leds; cannot claim for ocp:helper
+[  522.836471] pinctrl-single 44e10800.pinmux: pin-24 (ocp:helper) status -22
+[  522.843585] pinctrl-single 44e10800.pinmux: could not request pin 24 (44e10860.0) from group bb_gpio_test_pins  on device pinctrl-single
+[  522.856057] bone-pinmux-helper ocp:helper: Error applying setting, reverse things back
+[  522.864165] bone-pinmux-helper ocp:helper: Failed to select default state
+[  522.888577] ------------[ cut here ]------------
+[  522.888632] WARNING: CPU: 0 PID: 2163 at drivers/base/devres.c:888 devm_kfree+0x44/0x48()
+[  522.888641] Modules linked in: c_can_platform c_can can_dev spi_omap2_mcspi pwm_tiecap snd_soc_hdmi_codec snd_soc_simple_card omap_aes_driver omap_sham omap_rng rng_core tilcdc snd_soc_davinci_mcasp snd_soc_edma snd_soc_omap snd_soc_core snd_pcm_dmaengine snd_pcm snd_timer snd soundcore evdev tda998x uio_pdrv_genirq uio usb_f_mass_storage usb_f_acm u_serial usb_f_ecm usb_f_rndis u_ether libcomposite spidev tieqep pwm_tiehrpwm pru_rproc pruss_intc pruss
+[  522.888772] CPU: 0 PID: 2163 Comm: sh Not tainted 4.4.54-ti-r93 #1
+[  522.888779] Hardware name: Generic AM33XX (Flattened Device Tree)
+[  522.888818] [<c001ad48>] (unwind_backtrace) from [<c0015a50>] (show_stack+0x20/0x24)
+[  522.888844] [<c0015a50>] (show_stack) from [<c05bb158>] (dump_stack+0x9c/0xb0)
+[  522.888865] [<c05bb158>] (dump_stack) from [<c0042f44>] (warn_slowpath_common+0x98/0xc8)
+[  522.888879] [<c0042f44>] (warn_slowpath_common) from [<c0043078>] (warn_slowpath_null+0x2c/0x34)
+[  522.888893] [<c0043078>] (warn_slowpath_null) from [<c06eb860>] (devm_kfree+0x44/0x48)
+[  522.888915] [<c06eb860>] (devm_kfree) from [<c070ed04>] (bone_pinmux_helper_probe+0x1c8/0x268)
+[  522.888931] [<c070ed04>] (bone_pinmux_helper_probe) from [<c06e955c>] (platform_drv_probe+0x5c/0xc0)
+[  522.888946] [<c06e955c>] (platform_drv_probe) from [<c06e70e4>] (driver_probe_device+0x240/0x47c)
+[  522.888959] [<c06e70e4>] (driver_probe_device) from [<c06e7498>] (__device_attach_driver+0x90/0x9c)
+[  522.888982] [<c06e7498>] (__device_attach_driver) from [<c06e4de0>] (bus_for_each_drv+0x88/0xcc)
+[  522.888997] [<c06e4de0>] (bus_for_each_drv) from [<c06e6d88>] (__device_attach+0xd4/0x168)
+[  522.889010] [<c06e6d88>] (__device_attach) from [<c06e7608>] (device_initial_probe+0x1c/0x20)
+[  522.889022] [<c06e7608>] (device_initial_probe) from [<c06e617c>] (bus_probe_device+0x94/0x9c)
+[  522.889036] [<c06e617c>] (bus_probe_device) from [<c06e3d08>] (device_add+0x450/0x5f0)
+[  522.889057] [<c06e3d08>] (device_add) from [<c08b3cb0>] (of_device_add+0x44/0x4c)
+[  522.889074] [<c08b3cb0>] (of_device_add) from [<c08b45e0>] (of_platform_device_create_pdata+0x94/0xc8)
+[  522.889089] [<c08b45e0>] (of_platform_device_create_pdata) from [<c08b4718>] (of_platform_notify+0xe0/0x11c)
+[  522.889114] [<c08b4718>] (of_platform_notify) from [<c0065fcc>] (notifier_call_chain+0x54/0x94)
+[  522.889129] [<c0065fcc>] (notifier_call_chain) from [<c0066428>] (__blocking_notifier_call_chain+0x58/0x70)
+[  522.889143] [<c0066428>] (__blocking_notifier_call_chain) from [<c0066468>] (blocking_notifier_call_chain+0x28/0x30)
+[  522.889159] [<c0066468>] (blocking_notifier_call_chain) from [<c08b59f8>] (__of_changeset_entry_notify+0xb4/0x108)
+[  522.889174] [<c08b59f8>] (__of_changeset_entry_notify) from [<c08b6394>] (__of_changeset_apply+0x98/0x170)
+[  522.889190] [<c08b6394>] (__of_changeset_apply) from [<c08bbb54>] (__of_overlay_create+0x42c/0x618)
+[  522.889204] [<c08bbb54>] (__of_overlay_create) from [<c08bbd60>] (of_overlay_create+0x20/0x24)
+[  522.889217] [<c08bbd60>] (of_overlay_create) from [<c070fa28>] (capemgr_load_slot+0x3f4/0x5ec)
+[  522.889232] [<c070fa28>] (capemgr_load_slot) from [<c071189c>] (slots_store+0x14c/0x328)
+[  522.889246] [<c071189c>] (slots_store) from [<c06e1790>] (dev_attr_store+0x28/0x34)
+[  522.889263] [<c06e1790>] (dev_attr_store) from [<c023f10c>] (sysfs_kf_write+0x54/0x58)
+[  522.889278] [<c023f10c>] (sysfs_kf_write) from [<c023e89c>] (kernfs_fop_write+0xc8/0x1cc)
+[  522.889303] [<c023e89c>] (kernfs_fop_write) from [<c01c3098>] (__vfs_write+0x28/0x48)
+[  522.889318] [<c01c3098>] (__vfs_write) from [<c01c396c>] (vfs_write+0xa0/0x1a8)
+[  522.889330] [<c01c396c>] (vfs_write) from [<c01c4374>] (SyS_write+0x64/0xcc)
+[  522.889350] [<c01c4374>] (SyS_write) from [<c0010e60>] (ret_fast_syscall+0x0/0x44)
+[  522.889360] ---[ end trace 66526dbe284c5c63 ]---
+[  522.889400] bone-pinmux-helper: probe of ocp:helper failed with error -22
+[  522.889799] bone_capemgr bone_capemgr: slot #5: dtbo 'bb_gpio_test-00A0.dtbo' loaded; overlay id #1
