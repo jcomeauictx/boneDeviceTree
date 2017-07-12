@@ -1,4 +1,4 @@
-CONFIG ?= bbb_switched_led_test
+CONFIG ?= bb_gpio_test
 SLOTS ?= $(find /sys/devices/ -name slots)
 DRYRUN ?= --dry-run
 export

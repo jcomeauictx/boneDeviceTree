@@ -19,13 +19,13 @@
 
 /{
     compatible = "ti,beaglebone", "ti,beaglebone-black";
-    part-number = "bbb_switched_led_test";  /* same as root of filename */
+    part-number = "bb_gpio_test";  /* same as root of filename */
     version = "00A0";  /* apparently must be 00A0 to work with BBB */
 
     fragment@0 {
         target = <&am33xx_pinmux>;
         __overlay__ {
-            pinctrl_test: bbb_switched_led_test_pins {
+            pinctrl_test: bb_gpio_test_pins {
                 pinctrl-single,pins = <
                     /* use one or the other LED, not both...
                      * USR3 if booted from SDcard, USR1 if from emmc 
