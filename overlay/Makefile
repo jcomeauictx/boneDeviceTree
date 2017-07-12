@@ -1,4 +1,4 @@
-CONFIG ?= jc_gpio_test
+CONFIG ?= bbb_switched_led_test
 SLOTS ?= $(find /sys/devices/ -name slots)
 DRYRUN ?= --dry-run
 export

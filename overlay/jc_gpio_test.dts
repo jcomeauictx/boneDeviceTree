@@ -9,8 +9,7 @@
 		target = <&am33xx_pinmux>;
 
 		__overlay__ {
-
-			jc_gpio_test_pins {
+			pinctrl_test: jc_gpio_test_pins {
 				pinctrl-single,pins = <0x60 0x7 0xa8 0x37>;
 			};
 		};
@@ -20,10 +19,10 @@
 		target = <&ocp>;
 
 		__overlay__ {
-
-			helper {
+			test_helper: helper {
 				compatible = "bone-pinmux-helper";
 				pinctrl-names = "default";
+				pinctrl-0 = <&pinctrl_test>;
 				status = "okay";
 			};
 		};
