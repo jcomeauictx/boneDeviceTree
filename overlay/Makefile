@@ -1,10 +1,13 @@
+CONFIG ?= jc_gpio_test
 SLOTS ?= $(find /sys/devices/ -name slots)
+DRYRUN ?= --dry-run
 export
 default: uninstall install
-uninstall: bbb_switched_led_test.uninstall
-install: bbb_switched_led_test.install
+uninstall: $(CONFIG).uninstall
+install: $(CONFIG).install
 %.uninstall:
-	SLOT=$$(cat $(SLOTS) | awk -F: '$$2 ~ /$*/ {print $$1}'); \
+	SLOT=$$(echo $$(cat $(SLOTS) | awk -F: '$$NF ~ /$*/ {print $$1}')); \
+	echo SLOT=$$SLOT >&2; \
 	[ "$$SLOT" ] && echo -$$SLOT > $(SLOTS) || true
 %.install: %-00A0.dtbo
 	cp -f $< /lib/firmware
@@ -17,3 +20,6 @@ install: bbb_switched_led_test.install
 	dtc -I dtb -O dts $< > $@
 %.dts: %-00A0.dtbo
 	dtc -I dtb -O dts $< > $@
+upload: # to BBB, `make DRYRUN= upload` when you're sure
+	rsync -avuz -e "ssh -o StrictHostKeyChecking=no \
+	 -o UserKnownHostsFile=/dev/null" $(DRYRUN) . root@192.168.7.2:$(PWD)/
