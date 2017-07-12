@@ -23,3 +23,6 @@ install: $(CONFIG).install
 upload: # to BBB, `make DRYRUN= upload` when you're sure
 	rsync -avuz -e "ssh -o StrictHostKeyChecking=no \
 	 -o UserKnownHostsFile=/dev/null" $(DRYRUN) . root@192.168.7.2:$(PWD)/
+download: # from BBB, `make DRYRUN= download` when you're sure
+	rsync -avuz -e "ssh -o StrictHostKeyChecking=no \
+	 -o UserKnownHostsFile=/dev/null" $(DRYRUN) root@192.168.7.2:$(PWD)/ .

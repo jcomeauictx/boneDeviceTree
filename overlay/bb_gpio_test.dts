@@ -31,7 +31,7 @@
                      * USR3 if booted from SDcard, USR1 if from emmc 
                      * these are both mode 17h by default */
                     /* 0x54 0x07  /* pin 21, GPIO 53, LED USR1 */
-                       0x60 0x07  /* pin 24, GPIO 56, LED USR3 */
+                    /* 0x60 0x07  /* pin 24, GPIO 56, LED USR3 */
                     /* S2, the "boot switch", mode 0 by default */
                        0xa8 0x37  /* pin 42, GPIO 72, Switch S2 */
                     /* OUTPUT  GPIO(mode7) 0x07 pulldown, 0x17 pullup,
