@@ -12,8 +12,6 @@
 
 			jc_gpio_test_pins {
 				pinctrl-single,pins = <0x60 0x7 0xa8 0x37>;
-				linux,phandle = <0x1>;
-				phandle = <0x1>;
 			};
 		};
 	};
@@ -26,34 +24,8 @@
 			helper {
 				compatible = "bone-pinmux-helper";
 				pinctrl-names = "default";
-				pinctrl-0 = <0x1>;
 				status = "okay";
-				linux,phandle = <0x2>;
-				phandle = <0x2>;
 			};
 		};
-	};
-
-	__symbols__ {
-		pinctrl_test = "/fragment@0/__overlay__/jc_gpio_test_pins";
-		test_helper = "/fragment@1/__overlay__/helper";
-	};
-
-	__local_fixups__ {
-
-		fragment@1 {
-
-			__overlay__ {
-
-				helper {
-					pinctrl-0 = <0x0>;
-				};
-			};
-		};
-	};
-
-	__fixups__ {
-		am33xx_pinmux = "/fragment@0:target:0";
-		ocp = "/fragment@1:target:0";
 	};
 };
