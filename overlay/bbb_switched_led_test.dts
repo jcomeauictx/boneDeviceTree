@@ -18,7 +18,7 @@
 /plugin/;
 
 /{
-    compatible = "ti,beaglebone-black";  /* only with BBB for sure */
+    compatible = "ti,beaglebone", "ti,beaglebone-black";
     part-number = "bbb_switched_led_test";  /* same as root of filename */
     version = "00A0";  /* apparently must be 00A0 to work with BBB */
 
