@@ -1,4 +1,21 @@
+/*  
+* Copyright (C) 2012 Texas Instruments Incorporated - http://www.ti.com/
+*
+* This program is free software; you can redistribute it and/or modify
+* it under the terms of the GNU General Purpose License Version 2 as
+* published by the Free Software Foundation
+*
+* Original from: github.com/jadonk/validation-scripts/blob/master/test-capemgr/ 
+*
+* Modified by Derek Molloy for the example on www.derekmolloy.ie
+* that maps GPIO pins for the example
+*
+* Modified by John Comeau for libsoc test that doesn't require additional
+* switch and LED components.
+*/
+
 /dts-v1/;
+/plugin/;
 
 / {
 	compatible = "ti,beaglebone", "ti,beaglebone-black";
