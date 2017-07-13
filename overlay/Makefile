@@ -16,7 +16,11 @@ install: $(CONFIG).install
 	dtc -O dtb -o $@ -b 0 -@ $<
 # decompile rules follow
 # comment them out if you leave .dtbo files in this directory
+%.dts: %.dtb
+	dtc -I dtb -O dts $< > $@
 %.dts: %.dtbo
+	dtc -I dtb -O dts $< > $@
+%.dts: %-00A0.dtb
 	dtc -I dtb -O dts $< > $@
 %.dts: %-00A0.dtbo
 	dtc -I dtb -O dts $< > $@
